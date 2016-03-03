@@ -9,11 +9,8 @@ var getElementsByClassName = function(className, node){
   var result = [];
 
   if (node.nodeType === 1) {
-    for (var i = 0; i < node.classList.length; i++) {
-      if (node.classList[i] === className) {
-        result.push(node);
-        break;
-      }
+    if (Array.prototype.indexOf.call(node.classList, className) !== -1) {
+      result.push(node);
     }
   }
   node = node.firstChild;
